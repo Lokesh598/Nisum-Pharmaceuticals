@@ -10,3 +10,31 @@ hr{
     margin-top: 5rem;
 }
 
+.card-img-top {
+    height: 185px !important;
+}
+
+.card {
+    margin: 20px !important;
+}
+
+.card-body {
+    padding: 15px !important;
+}
+
+.card-title {
+    font-size: 15px !important;
+}
+
+.table {
+    border: 1px solid #ccc !important;
+    margin: 20px !important
+}
+
+.m-r-15 {
+    margin-right: 15px !important;
+}
+
+form {
+    margin : 20px !important;
+}

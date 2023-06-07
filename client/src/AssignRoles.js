@@ -131,7 +131,7 @@ function AssignRoles() {
                         <Breadcrumb.Item active>{subTitle}</Breadcrumb.Item>
                         <Breadcrumb.Item active>Add</Breadcrumb.Item>
                     </Breadcrumb>
-                    <form onSubmit={handlerSubmit}>
+                    <form onSubmit={handlerSubmit} className="m-20">
                         <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeAddress} placeholder="Ethereum Address" required />
                         <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeName} placeholder="Raw Material Supplier Name" required />
                         <input className="form-control-sm m-r-15" type="text" onChange={handlerChangePlace} placeholder="Based In" required />

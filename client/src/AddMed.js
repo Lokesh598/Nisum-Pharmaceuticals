@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
+import Table from 'react-bootstrap/Table';
 
 function AddMed() {
     const history = useHistory()
@@ -90,24 +91,21 @@ function AddMed() {
     }
     return (
         <div>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
+            {/* <span><b>Current Account Address:</b> {currentaccount}</span>
             <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
-            <br />
-            <h5>Add Medicine Order:</h5>
-            <form onSubmit={handlerSubmitMED}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeNameMED} placeholder="Medicine Name" required />
-                <input className="form-control-sm" type="text" onChange={handlerChangeDesMED} placeholder="Medicine Description" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMED}>Order</button>
+            <br /> */}
+            <form onSubmit={handlerSubmitMED} className="m-20">
+                <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeNameMED} placeholder="Medicine Name" required />
+                <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeDesMED} placeholder="Medicine Description" required />
+                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMED}>Add Order</button>
             </form>
-            <br />
-            <h5>Ordered Medicines:</h5>
-            <table className="table table-bordered">
+            <Table responsive="sm">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Current Stage</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Current Stage</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -117,16 +115,12 @@ function AddMed() {
                                 <td>{MED[key].id}</td>
                                 <td>{MED[key].name}</td>
                                 <td>{MED[key].description}</td>
-                                <td>
-                                    {
-                                        MedStage[key]
-                                    }
-                                </td>
+                                <td>{MedStage[key]}</td>
                             </tr>
                         )
                     })}
                 </tbody>
-            </table>
+            </Table>
         </div>
     )
 }

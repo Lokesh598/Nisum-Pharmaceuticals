@@ -1,11 +1,12 @@
-hr{
+hr {
     position: relative;
     top: 20px;
-    border: none;   
+    border: none;
     height: 12px;
     background: black;
 }
-.wait{
+
+.wait {
     text-align: center;
     margin-top: 5rem;
 }
@@ -36,8 +37,9 @@ hr{
 }
 
 .m-20 {
-    margin : 20px !important;
+    margin: 20px !important;
 }
+
 .circle {
     border-radius: 50%;
     width: 34px;
@@ -47,4 +49,12 @@ hr{
     background: rgba(0, 116, 217, 0.8);
     text-align: center;
     font: 27px Arial, sans-serif;
-  }
+}
+
+.homebg {
+    background-image: url("https://code-care.com/wp-content/uploads/2023/01/What-are-the-Advantages-of-Web-3.0-and-How-Quickly-Should-You-Adapt-to-it.jpeg");
+    background-size: cover;
+    height: 100vh;
+    margin-top: -65px;
+    background-repeat: no-repeat;
+}

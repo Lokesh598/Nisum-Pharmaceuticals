@@ -1,9 +1,9 @@
 import React from 'react'
 
 function Home() {
-    
+
     return (
-        <div>
+        <div className="homebg">
             <h3>Pharmaceutical Supply Chain Flow :-- </h3>
         </div>
     )

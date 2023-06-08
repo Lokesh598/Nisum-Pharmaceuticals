@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 import Table from 'react-bootstrap/Table';
 import "react-step-progress-bar/styles.css";
 import { ProgressBar, Step } from "react-step-progress-bar";
 function Supply() {
-    const history = useHistory()
     useEffect(() => {
         loadWeb3();
         loadBlockchaindata();
@@ -17,7 +15,6 @@ function Supply() {
     const [SupplyChain, setSupplyChain] = useState();
     const [MED, setMED] = useState();
     const [MedStage, setMedStage] = useState();
-    const [ID, setID] = useState();
 
 
     const loadWeb3 = async () => {
@@ -66,9 +63,6 @@ function Supply() {
             </div>
         )
 
-    }
-    const redirect_to_home = () => {
-        history.push('/')
     }
 
     const handlerSubmitRMSsupply = async (event, ID) => {

@@ -55,6 +55,10 @@ hr {
     background-image: url("https://code-care.com/wp-content/uploads/2023/01/What-are-the-Advantages-of-Web-3.0-and-How-Quickly-Should-You-Adapt-to-it.jpeg");
     background-size: cover;
     height: 100vh;
-    margin-top: -65px;
+    margin-top: -56px;
     background-repeat: no-repeat;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #FFF !important;
 }

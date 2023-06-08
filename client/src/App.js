@@ -11,7 +11,7 @@ import Nav from 'react-bootstrap/Nav';
 function App() {
   return (
     <div className="App">
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg={window?.location?.pathname === "/" ?"transparent" : "primary"} variant="dark">
         <Container>
           <Navbar.Brand href="/">WEB3.0</Navbar.Brand>
           <Nav className="me-auto">

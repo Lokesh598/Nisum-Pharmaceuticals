@@ -70,7 +70,7 @@ function Supply() {
     const redirect_to_home = () => {
         history.push('/')
     }
-   
+
     const handlerSubmitRMSsupply = async (event, ID) => {
         event.preventDefault();
         try {
@@ -149,10 +149,10 @@ function Supply() {
             <h6><b>Supply Chain Flow:</b>
                 <p>Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
             </h6>
-            <div className="m-20">
-                <ProgressBar percent={100}>
+            <div className="m-20" style={{ textAlign: "-webkit-center",marginLeft: "25%",marginRight:"25%" }}>
+                <ProgressBar percent={100} style={{ width: "500px" }}>
                     <Step transition="scale" text="New">
-                        {() => (<span className="circle">1</span>)}
+                        {() => (<span className="circle">1 </span>)}
                     </Step>
                     <Step transition="scale" childre>
                         {() => (<span className="circle">2</span>)}

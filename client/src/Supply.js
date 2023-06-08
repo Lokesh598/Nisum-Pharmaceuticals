@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
-
+import Table from 'react-bootstrap/Table';
+import "react-step-progress-bar/styles.css";
+import { ProgressBar, Step } from "react-step-progress-bar";
 function Supply() {
     const history = useHistory()
     useEffect(() => {
@@ -68,10 +70,8 @@ function Supply() {
     const redirect_to_home = () => {
         history.push('/')
     }
-    const handlerChangeID = (event) => {
-        setID(event.target.value);
-    }
-    const handlerSubmitRMSsupply = async (event) => {
+   
+    const handlerSubmitRMSsupply = async (event, ID) => {
         event.preventDefault();
         try {
             var reciept = await SupplyChain.methods.RMSsupply(ID).send({ from: currentaccount });
@@ -83,7 +83,7 @@ function Supply() {
             alert("An error occured!!!")
         }
     }
-    const handlerSubmitManufacturing = async (event) => {
+    const handlerSubmitManufacturing = async (event, ID) => {
         event.preventDefault();
         try {
             var reciept = await SupplyChain.methods.Manufacturing(ID).send({ from: currentaccount });
@@ -95,7 +95,7 @@ function Supply() {
             alert("An error occured!!!")
         }
     }
-    const handlerSubmitDistribute = async (event) => {
+    const handlerSubmitDistribute = async (event, ID) => {
         event.preventDefault();
         try {
             var reciept = await SupplyChain.methods.Distribute(ID).send({ from: currentaccount });
@@ -107,7 +107,7 @@ function Supply() {
             alert("An error occured!!!")
         }
     }
-    const handlerSubmitRetail = async (event) => {
+    const handlerSubmitRetail = async (event, ID) => {
         event.preventDefault();
         try {
             var reciept = await SupplyChain.methods.Retail(ID).send({ from: currentaccount });
@@ -119,7 +119,7 @@ function Supply() {
             alert("An error occured!!!")
         }
     }
-    const handlerSubmitSold = async (event) => {
+    const handlerSubmitSold = async (event, ID) => {
         event.preventDefault();
         try {
             var reciept = await SupplyChain.methods.sold(ID).send({ from: currentaccount });
@@ -131,19 +131,54 @@ function Supply() {
             alert("An error occured!!!")
         }
     }
+
     return (
-        <div>
+        <>
             <span><b>Current Account Address:</b> {currentaccount}</span>
             <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
-            <h6><b>Supply Chain Flow:</b></h6>
-            <p>Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
-            <table className="table table-sm table-dark">
+            {/* <div className="m-20">
+                <h6><b>Supply Chain Flow:</b>
+                    <p>Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
+                </h6>
+                <h5><b>Step 1: Supply Raw Materials</b>(Only a registered Raw Material Supplier can perform this step)</h5>
+                <h5><b>Step 2: Manufacture</b>(Only a registered Manufacturer can perform this step)</h5>
+                <h5><b>Step 3: Distribute</b>(Only a registered Distributor can perform this step)</h5>
+                <h5><b>Step 4: Retail</b>(Only a registered Retailer can perform this step)</h5>
+                <h5><b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this step)</h5>
+            </div> */}
+            <h6><b>Supply Chain Flow:</b>
+                <p>Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
+            </h6>
+            <div className="m-20">
+                <ProgressBar percent={100}>
+                    <Step transition="scale" text="New">
+                        {() => (<span className="circle">1</span>)}
+                    </Step>
+                    <Step transition="scale" childre>
+                        {() => (<span className="circle">2</span>)}
+                    </Step>
+                    <Step transition="scale">
+                        {() => (<span className="circle">3</span>)}
+                    </Step>
+                    <Step transition="scale">
+                        {() => (<span className="circle">4</span>)}
+                    </Step>
+                    <Step transition="scale">
+                        {() => (<span className="circle">5</span>)}
+                    </Step>
+                    <Step transition="scale">
+                        {() => (<span className="circle">6</span>)}
+                    </Step>
+                </ProgressBar >
+            </div>
+            <Table responsive="sm">
                 <thead>
                     <tr>
-                        <th scope="col">Medicine ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Current Processing Stage</th>
+                        <th>Medicine ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Current Processing Stage</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -153,51 +188,20 @@ function Supply() {
                                 <td>{MED[key].id}</td>
                                 <td>{MED[key].name}</td>
                                 <td>{MED[key].description}</td>
+                                <td>{MedStage[key]}</td>
                                 <td>
-                                    {
-                                        MedStage[key]
-                                    }
+                                    {MedStage[key] === "Medicine Ordered" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitRMSsupply(event, MED[key].id)}>Supply</button>}
+                                    {MedStage[key] === "Raw Material Supply Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitManufacturing(event, MED[key].id)}>Manufacture</button>}
+                                    {MedStage[key] === "Manufacturing Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitDistribute(event, MED[key].id)}>Distribute</button>}
+                                    {MedStage[key] === "Distribution Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitRetail(event, MED[key].id)}>Retail</button>}
+                                    {MedStage[key] === "Retail Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitSold(event, MED[key].id)}>Sold</button>}
                                 </td>
                             </tr>
                         )
                     })}
                 </tbody>
-            </table>
-            <h5><b>Step 1: Supply Raw Materials</b>(Only a registered Raw Material Supplier can perform this step):-</h5>
-            <form onSubmit={handlerSubmitRMSsupply}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRMSsupply}>Supply</button>
-            </form>
-            <hr />
-            <br />
-            <h5><b>Step 2: Manufacture</b>(Only a registered Manufacturer can perform this step):-</h5>
-            <form onSubmit={handlerSubmitManufacturing}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitManufacturing}>Manufacture</button>
-            </form>
-            <hr />
-            <br />
-            <h5><b>Step 3: Distribute</b>(Only a registered Distributor can perform this step):-</h5>
-            <form onSubmit={handlerSubmitDistribute}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitDistribute}>Distribute</button>
-            </form>
-            <hr />
-            <br />
-            <h5><b>Step 4: Retail</b>(Only a registered Retailer can perform this step):-</h5>
-            <form onSubmit={handlerSubmitRetail}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitRetail}>Retail</button>
-            </form>
-            <hr />
-            <br />
-            <h5><b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this step):-</h5>
-            <form onSubmit={handlerSubmitSold}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitSold}>Sold</button>
-            </form>
-            <hr />
-        </div>
+            </Table>
+        </>
     )
 }
 

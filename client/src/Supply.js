@@ -134,8 +134,6 @@ function Supply() {
 
     return (
         <>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
             {/* <div className="m-20">
                 <h6><b>Supply Chain Flow:</b>
                     <p>Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>

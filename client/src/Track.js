@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
+import Table from 'react-bootstrap/Table';
 
 function Track() {
     const history = useHistory()
@@ -10,7 +11,6 @@ function Track() {
         loadBlockchaindata();
     }, [])
 
-    const [currentaccount, setCurrentaccount] = useState("");
     const [loader, setloader] = useState(true);
     const [SupplyChain, setSupplyChain] = useState();
     const [MED, setMED] = useState();
@@ -42,9 +42,6 @@ function Track() {
     const loadBlockchaindata = async () => {
         setloader(true);
         const web3 = window.web3;
-        const accounts = await web3.eth.getAccounts();
-        const account = accounts[0];
-        setCurrentaccount(account);
         const networkId = await web3.eth.net.getId();
         const networkData = SupplyChainABI.networks[networkId];
         if (networkData) {
@@ -363,14 +360,10 @@ function Track() {
             </div >
         )
     }
-    const handlerChangeID = (event) => {
-        setID(event.target.value);
-    }
-    const redirect_to_home = () => {
-        history.push('/')
-    }
-    const handlerSubmit = async (event) => {
+   
+    const handlerSubmit = async (event,ID) => {
         event.preventDefault();
+        setID(ID)
         var ctr = await SupplyChain.methods.medicineCtr().call();
         if (!((ID > 0) && (ID <= ctr)))
             alert("Invalid Medicine ID!!!");
@@ -398,15 +391,14 @@ function Track() {
 
     return (
         <div>
-            <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
-            <table className="table table-sm table-bordered">
+            <Table responsive="sm">
                 <thead>
                     <tr>
-                        <th scope="col">Medicine ID</th>
-                        <th scope="col">Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Current Processing Stage</th>
+                        <th>Medicine ID</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Current Processing Stage</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -416,22 +408,13 @@ function Track() {
                                 <td>{MED[key].id}</td>
                                 <td>{MED[key].name}</td>
                                 <td>{MED[key].description}</td>
-                                <td>
-                                    {
-                                        MedStage[key]
-                                    }
-                                </td>
+                                <td>{MedStage[key]}</td>
+                                <td> <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmit(event, MED[key].id)}>Track Order</button></td>
                             </tr>
                         )
                     })}
                 </tbody>
-            </table>
-            <h5>Enter Medicine ID to Track it</h5>
-
-            <form onSubmit={handlerSubmit}>
-                <input className="form-control-sm" type="text" onChange={handlerChangeID} placeholder="Enter Medicine ID" required />
-                <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmit}>Track</button>
-            </form>
+            </Table>
         </div>
     )
 }

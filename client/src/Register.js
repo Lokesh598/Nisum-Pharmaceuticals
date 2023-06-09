@@ -5,11 +5,14 @@ import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import Table from 'react-bootstrap/Table';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
+import Toast from 'react-bootstrap/Toast';
 
 function Register() {
     useEffect(() => {
         loadWeb3();
-        loadBlockchaindata();
+        loadBlockchaindata(false);
     }, [])
     const [currentaccount, setCurrentaccount] = useState("");
     const [loader, setloader] = useState(true);
@@ -21,6 +24,8 @@ function Register() {
     const [addMethod, setAddMethod] = useState();
     const [subTitle, setSubTitle] = useState("");
     const [showMain, setShowMain] = useState(true);
+    const [type, setType] = useState("");
+    const [control, setControl] = useState("");
 
 
     const loadWeb3 = async () => {
@@ -36,7 +41,7 @@ function Register() {
         }
     };
 
-    const loadBlockchaindata = async () => {
+    const loadBlockchaindata = async (have) => {
         setloader(true);
         const web3 = window.web3;
         const accounts = await web3.eth.getAccounts();
@@ -46,6 +51,7 @@ function Register() {
         const networkData = SupplyChainABI.networks[networkId];
         if (networkData) {
             const supplychain = new web3.eth.Contract(SupplyChainABI.abi, networkData.address);
+            if (have) cilickOnCard(control, type, addMethod, subTitle)
             setSupplyChain(supplychain);
             setloader(false);
         } else window.alert('The smart contract is not deployed to current network')
@@ -53,16 +59,41 @@ function Register() {
 
     if (loader) {
         return (
-            <div>
-                <h1 className="wait">Loading...</h1>
+            <div className="spinner-button">
+                <Button variant="primary" disabled>
+                    <Spinner
+                        as="span"
+                        animation="grow"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                    />
+                    Loading...
+                </Button>
             </div>
+        )
+    }
+    if (loader) {
+        return (
+            <Toast
+                className="d-inline-block m-1"
+                bg="danger"
+                autohide={true}
+            >
+                <Toast.Body className="text-white">
+                    Hello, world! This is a toast message.
+                </Toast.Body>
+            </Toast>
         )
     }
 
     const cilickOnCard = async (ctrl, type, addMethod, title) => {
+
         setAddMethod(addMethod);
         setSubTitle(title);
         setShowMain(false)
+        setType(type);
+        setControl(ctrl)
         var i;
         const controls = await SupplyChain.methods?.[ctrl]().call();
         const records = {};
@@ -85,17 +116,13 @@ function Register() {
     }
     const handlerSubmit = async (event) => {
         event.preventDefault();
-        console.log(SupplyChain.methods)
         try {
-            console.log(addMethod,address, name, place,currentaccount)
-            //0xB71e7fC29222C0F8393fc0007Dc2Ac610f43fFdF
             var reciept = await SupplyChain.methods?.[addMethod](address, name, place).send({ from: currentaccount });
             if (reciept) {
-                loadBlockchaindata();
+                loadBlockchaindata(true);
             }
         }
         catch (err) {
-            console.log(err,">>>>>>>>>>")
             alert("An error occured!!!")
         }
     }

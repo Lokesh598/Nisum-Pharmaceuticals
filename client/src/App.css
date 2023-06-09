@@ -78,6 +78,12 @@ hr {
     background-color: rgb(0, 25, 255) !important;
 }
 
+.spinner-button {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
 /* Progress bar */
 .progressbar-wrapper {
     background: #fff;

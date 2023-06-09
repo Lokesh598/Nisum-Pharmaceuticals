@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 import Table from 'react-bootstrap/Table';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 function OrderMedicine() {
     useEffect(() => {
@@ -60,13 +62,22 @@ function OrderMedicine() {
     }
     if (loader) {
         return (
-            <div>
-                <h1 className="wait">Loading...</h1>
+            <div className="spinner-button">
+                <Button variant="primary" disabled>
+                    <Spinner
+                        as="span"
+                        animation="grow"
+                        size="sm"
+                        role="status"
+                        aria-hidden="true"
+                    />
+                    Loading...
+                </Button>
             </div>
         )
 
     }
-  
+
     const handlerChangeNameMED = (event) => {
         setMedName(event.target.value);
     }

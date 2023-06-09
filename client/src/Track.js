@@ -3,6 +3,8 @@ import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 import Table from 'react-bootstrap/Table';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
+import Button from 'react-bootstrap/Button';
+import Spinner from 'react-bootstrap/Spinner';
 
 function Track() {
     useEffect(() => {
@@ -82,7 +84,20 @@ function Track() {
         }
     }
 
-    if (loader) return (<div><h1 className="wait">Loading...</h1></div>)
+    if (loader) return (
+        <div className="spinner-button">
+            <Button variant="primary" disabled>
+                <Spinner
+                    as="span"
+                    animation="grow"
+                    size="sm"
+                    role="status"
+                    aria-hidden="true"
+                />
+                Loading...
+            </Button>
+        </div>
+    )
 
     const trackDetails = async (event, ID, obj) => {
         event.preventDefault();

@@ -98,9 +98,6 @@ function OrderMedicine() {
     }
     return (
         <div>
-            {/* <span><b>Current Account Address:</b> {currentaccount}</span>
-            <span onClick={redirect_to_home} className="btn btn-outline-danger btn-sm"> HOME</span>
-            <br /> */}
             <form onSubmit={handlerSubmitMED} className="m-20">
                 <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeNameMED} placeholder="Medicine Name" required />
                 <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeDesMED} placeholder="Medicine Description" required />

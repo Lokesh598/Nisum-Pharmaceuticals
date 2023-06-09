@@ -59,10 +59,6 @@ hr {
     background-repeat: no-repeat;
 }
 
-.navbar-dark .navbar-nav .nav-link {
-    color: #FFF !important;
-}
-
 .project-title {
     position: absolute;
     left: 65%;
@@ -71,6 +67,11 @@ hr {
     margin-top: -100px;
     margin-left: -15%;
     color: #FFF;
+} 
+
+.active-link {
+    font-weight: bold;
+    color : #FFF !important;
 }
 
 

@@ -7,7 +7,6 @@ import Table from 'react-bootstrap/Table';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 import Button from 'react-bootstrap/Button';
 import Spinner from 'react-bootstrap/Spinner';
-import Toast from 'react-bootstrap/Toast';
 
 function Register() {
     useEffect(() => {
@@ -71,19 +70,6 @@ function Register() {
                     Loading...
                 </Button>
             </div>
-        )
-    }
-    if (loader) {
-        return (
-            <Toast
-                className="d-inline-block m-1"
-                bg="danger"
-                autohide={true}
-            >
-                <Toast.Body className="text-white">
-                    Hello, world! This is a toast message.
-                </Toast.Body>
-            </Toast>
         )
     }
 

@@ -30,8 +30,8 @@ function LandingPage() {
         <div className="homebg">
             <div className="project-title"> <h1>Pharmaceutical Supply Chain</h1>
                 <span>The pharmaceutical supply chain involves the process of sourcing raw materials, manufacturing, distributing, and delivering medications to patients</span>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 <span><b>Current Account Address:</b> {currentaccount}</span>
             </div>
         </div>

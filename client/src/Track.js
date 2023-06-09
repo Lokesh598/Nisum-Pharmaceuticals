@@ -127,9 +127,9 @@ function Track() {
                         return (
                             <tr key={key}>
                                 <td>{MED[key].id}</td>
-                                <td>{MED[key].name}</td>
-                                <td>{MED[key].description}</td>
-                                <td>{MED[key].compositions}</td>
+                                <td>{MED[key]?.name?.length > 40 ? MED[key]?.name?.substring(1, 40)+"..."  : MED[key]?.name}</td>
+                                <td>{MED[key]?.description?.length > 40 ? MED[key]?.description?.substring(1, 40)+"..."  : MED[key]?.description}</td>
+                                <td>{MED[key]?.compositions?.length > 40 ? MED[key]?.compositions?.substring(1, 40)+"..."  : MED[key]?.compositions}</td>
                                 <td>{MED[key].quantity}</td>
                                 <td>{MedStage[key]}</td>
                                 <td> <button className="btn btn-outline-success btn-sm" onClick={(event) => trackDetails(event, MED[key]?.id, MED[key])}>Track Order</button></td>

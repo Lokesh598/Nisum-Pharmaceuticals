@@ -117,39 +117,25 @@ function OrderMedicine() {
             <Table responsive="sm">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Composition</th>
-                        <th>Quantity</th>
-                        <th>Current Stage</th>
+                        <th style={{width:"10%"}}>ID</th>
+                        <th style={{width:"10%"}}>Name</th>
+                        <th style={{width:"10%"}}>Description</th>
+                        <th style={{width:"10%"}}>Composition</th>
+                        <th style={{width:"10%"}}>Quantity</th>
+                        <th style={{width:"10%"}}>Current Stage</th>
                     </tr>
                 </thead>
-                {/* <tbody>
-                    {Object.keys(MED).map(function (key) {
-                        console.log(MED);
-                        return (
-                            <tr key={key}>
-                                <td>{MED[key].id}</td>
-                                <td>{MED[key].name}</td>
-                                <td>{MED[key].description}</td>
-                                <td>{MED[key].compositions}</td>
-                                <td>{MED[key].quantity}</td>
-                                <td>{MedStage[key]}</td>
-                            </tr>
-                        )
-                    })}
-                </tbody> */}
                 <tbody>
                     {Object.entries(MED).map(function ([key, value]) { 
                         return (
                             <tr key={key}>
-                                 <td>{value.id}</td>
-                                <td>{value.name}</td>
-                                <td>{value.description}</td>
-                                <td>{value.compositions}</td>
-                                <td>{value.quantity}</td>
-                                <td>{MedStage[key]}</td>
+                             
+                                <td style={{width:"10%"}}>{MED[key]?.id}</td>
+                                <td style={{width:"10%"}}>{MED[key]?.name?.length > 40 ? MED[key]?.name?.substring(1, 40)+"..."  : MED[key]?.name}</td>
+                                <td style={{width:"10%"}}>{MED[key]?.description?.length > 40 ? MED[key]?.description?.substring(1, 40)+"..."  : MED[key]?.description}</td>
+                                <td style={{width:"10%"}}>{MED[key]?.compositions?.length > 40 ? MED[key]?.compositions?.substring(1, 40)+"..."  : MED[key]?.compositions}</td>
+                                <td style={{width:"10%"}}>{MED[key]?.quantity}</td>
+                                <td style={{width:"10%"}}>{MedStage[key]}</td>
                             </tr>
                         )
                     })}

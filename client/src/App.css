@@ -28,6 +28,7 @@ hr {
 }
 
 .table {
+    width: 97% !important;
     border: 1px solid #ccc !important;
     margin: 20px !important
 }
@@ -55,7 +56,7 @@ hr {
     background-image: url("https://code-care.com/wp-content/uploads/2023/01/What-are-the-Advantages-of-Web-3.0-and-How-Quickly-Should-You-Adapt-to-it.jpeg");
     background-size: cover;
     height: 100vh;
-    margin-top: -56px;
+    margin-top: -63px;
     background-repeat: no-repeat;
 }
 
@@ -295,4 +296,17 @@ h6 {
 
 .text-c-red {
     color: #FF5370;
+}
+
+.footer {
+    height: 46px;
+    background-color: #ccc;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    color: black;
+    font-size: 14px;
+    display: inline-grid;
+    justify-content: center;
+    text-align: center;
 }

@@ -8,6 +8,10 @@ import "./App.css";
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    {window?.location?.pathname !== "/" && <footer className="footer">
+      <div>@2023 Copyright : <a href="https://www.nisum.com/">nisum.com</a></div>
+      <div>Developed By : Anup Kumar Beerkur, Tulasi Naveen Nadella, Lokesh Singh, Jhansi Mandadi</div>
+    </footer>}
   </React.StrictMode>,
   document.getElementById('root')
 );

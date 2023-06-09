@@ -174,13 +174,13 @@ function Supply() {
                         return (
                             <tr key={key}>
                                 <td>{MED[key].id}</td>
-                                <td>{MED[key].name}</td>
-                                <td>{MED[key].description}</td>
-                                <td>{MED[key].compositions}</td>
+                                <td>{MED[key]?.name?.length > 40 ? MED[key]?.name?.substring(1, 40)+"..."  : MED[key]?.name}</td>
+                                <td>{MED[key]?.description?.length > 40 ? MED[key]?.description?.substring(1, 40)+"..."  : MED[key]?.description}</td>
+                                <td>{MED[key]?.compositions?.length > 40 ? MED[key]?.compositions?.substring(1, 40)+"..."  : MED[key]?.compositions}</td>
                                 <td>{MED[key].quantity}</td>
                                 <td>{MedStage[key]}</td>
                                 <td>
-                                    {MedStage[key] === "Medicine Ordered" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitRMSsupply(event, MED[key].id)}>Supply</button>}
+                                {MedStage[key] === "Medicine Ordered" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitRMSsupply(event, MED[key].id)}>Supply</button>}
                                     {MedStage[key] === "Raw Material Supply Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitManufacturing(event, MED[key].id)}>Manufacture</button>}
                                     {MedStage[key] === "Manufacturing Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitDistribute(event, MED[key].id)}>Distribute</button>}
                                     {MedStage[key] === "Distribution Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitRetail(event, MED[key].id)}>Retail</button>}

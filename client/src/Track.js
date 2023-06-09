@@ -116,6 +116,8 @@ function Track() {
                         <th>Medicine ID</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Composition</th>
+                        <th>Quantity</th>
                         <th>Current Processing Stage</th>
                         <th>Actions</th>
                     </tr>
@@ -127,6 +129,8 @@ function Track() {
                                 <td>{MED[key].id}</td>
                                 <td>{MED[key].name}</td>
                                 <td>{MED[key].description}</td>
+                                <td>{MED[key].compositions}</td>
+                                <td>{MED[key].quantity}</td>
                                 <td>{MedStage[key]}</td>
                                 <td> <button className="btn btn-outline-success btn-sm" onClick={(event) => trackDetails(event, MED[key]?.id, MED[key])}>Track Order</button></td>
                             </tr>
@@ -148,6 +152,10 @@ function Track() {
                         <span><b> Name: </b> {MED[ID]?.name}</span>
                         <br />
                         <span><b> Description: </b>{MED[ID]?.description}</span>
+                        <br />
+                        <span><b> Composition: </b>{MED[ID]?.compositions}</span>
+                        <br />
+                        <span><b> Quantity: </b>{MED[ID]?.quantity}</span>
                         <br />
                         <span><b> Current stage: </b>{MedStage[ID]}</span>
                     </div>}

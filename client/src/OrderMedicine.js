@@ -17,6 +17,8 @@ function OrderMedicine() {
     const [MED, setMED] = useState();
     const [MedName, setMedName] = useState();
     const [MedDes, setMedDes] = useState();
+    const [MedComs, setMedComs] = useState();
+    const [MedQuant, setMedQuant] = useState();
     const [MedStage, setMedStage] = useState();
 
 
@@ -84,10 +86,17 @@ function OrderMedicine() {
     const handlerChangeDesMED = (event) => {
         setMedDes(event.target.value);
     }
+    const handlerChangeComs = (event) => {
+        setMedComs(event.target.value);
+    }
+    const handlerChangeQuant = (event) => {
+        setMedQuant(event.target.value);
+    }
     const handlerSubmitMED = async (event) => {
         event.preventDefault();
         try {
-            var reciept = await SupplyChain.methods.addMedicine(MedName, MedDes).send({ from: currentaccount });
+            var reciept = await SupplyChain.methods.addMedicine(MedName, MedDes,MedComs, MedQuant).send({ from: currentaccount });
+            console.log(reciept);
             if (reciept) {
                 loadBlockchaindata();
             }
@@ -101,6 +110,8 @@ function OrderMedicine() {
             <form onSubmit={handlerSubmitMED} className="m-20">
                 <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeNameMED} placeholder="Medicine Name" required />
                 <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeDesMED} placeholder="Medicine Description" required />
+                <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeComs} placeholder="Medicine Composition" required />
+                <input className="form-control-sm m-r-15" type="text" onChange={handlerChangeQuant} placeholder="Medicine Quantity" required />
                 <button className="btn btn-outline-success btn-sm" onSubmit={handlerSubmitMED}>Add Order</button>
             </form>
             <Table responsive="sm">
@@ -109,16 +120,35 @@ function OrderMedicine() {
                         <th>ID</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Composition</th>
+                        <th>Quantity</th>
                         <th>Current Stage</th>
                     </tr>
                 </thead>
-                <tbody>
+                {/* <tbody>
                     {Object.keys(MED).map(function (key) {
+                        console.log(MED);
                         return (
                             <tr key={key}>
                                 <td>{MED[key].id}</td>
                                 <td>{MED[key].name}</td>
                                 <td>{MED[key].description}</td>
+                                <td>{MED[key].compositions}</td>
+                                <td>{MED[key].quantity}</td>
+                                <td>{MedStage[key]}</td>
+                            </tr>
+                        )
+                    })}
+                </tbody> */}
+                <tbody>
+                    {Object.entries(MED).map(function ([key, value]) { 
+                        return (
+                            <tr key={key}>
+                                 <td>{value.id}</td>
+                                <td>{value.name}</td>
+                                <td>{value.description}</td>
+                                <td>{value.compositions}</td>
+                                <td>{value.quantity}</td>
                                 <td>{MedStage[key]}</td>
                             </tr>
                         )
@@ -129,4 +159,5 @@ function OrderMedicine() {
     )
 }
 
-export default OrderMedicine
+export default OrderMedicine;
+ 

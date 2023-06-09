@@ -163,6 +163,8 @@ function Supply() {
                         <th>Medicine ID</th>
                         <th>Name</th>
                         <th>Description</th>
+                        <th>Composition</th>
+                        <th>Quantity</th>
                         <th>Current Processing Stage</th>
                         <th>Actions</th>
                     </tr>
@@ -174,6 +176,8 @@ function Supply() {
                                 <td>{MED[key].id}</td>
                                 <td>{MED[key].name}</td>
                                 <td>{MED[key].description}</td>
+                                <td>{MED[key].compositions}</td>
+                                <td>{MED[key].quantity}</td>
                                 <td>{MedStage[key]}</td>
                                 <td>
                                     {MedStage[key] === "Medicine Ordered" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitRMSsupply(event, MED[key].id)}>Supply</button>}

@@ -49,6 +49,8 @@ contract SupplyChain {
         uint256 id; //unique medicine id
         string name; //name of the medicine
         string description; //about medicine
+        string compositions; //about compostion
+        uint256 quantity;
         uint256 RMSid; //id of the Raw Material supplier for this particular medicine
         uint256 MANid; //id of the Manufacturer for this particular medicine
         uint256 DISid; //id of the distributor for this particular medicine
@@ -251,7 +253,9 @@ contract SupplyChain {
     // To add new medicines to the stock
     function addMedicine(
         string memory _name,
-        string memory _description
+        string memory _description,
+        string memory _composition,
+        uint256 _quantity
     ) public onlyByOwner {
         require((rmsCtr > 0) && (manCtr > 0) && (disCtr > 0) && (retCtr > 0));
         medicineCtr++;
@@ -259,6 +263,8 @@ contract SupplyChain {
             medicineCtr,
             _name,
             _description,
+            _composition,
+            _quantity, // Set the composition of the medicine
             0,
             0,
             0,

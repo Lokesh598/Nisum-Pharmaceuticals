@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 import Table from 'react-bootstrap/Table';
-import "react-step-progress-bar/styles.css";
-import { ProgressBar, Step } from "react-step-progress-bar";
+
 function Supply() {
     useEffect(() => {
         loadWeb3();

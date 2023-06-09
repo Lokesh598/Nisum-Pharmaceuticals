@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { useHistory } from "react-router-dom"
 import Web3 from "web3";
 import SupplyChainABI from "./artifacts/SupplyChain.json"
 import Table from 'react-bootstrap/Table';
 
-function AddMed() {
-    const history = useHistory()
+function OrderMedicine() {
     useEffect(() => {
         loadWeb3();
         loadBlockchaindata();
@@ -68,9 +66,7 @@ function AddMed() {
         )
 
     }
-    const redirect_to_home = () => {
-        history.push('/')
-    }
+  
     const handlerChangeNameMED = (event) => {
         setMedName(event.target.value);
     }
@@ -125,4 +121,4 @@ function AddMed() {
     )
 }
 
-export default AddMed
+export default OrderMedicine

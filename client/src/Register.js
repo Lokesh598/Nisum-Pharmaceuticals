@@ -6,7 +6,7 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import Table from 'react-bootstrap/Table';
 import Breadcrumb from 'react-bootstrap/Breadcrumb';
 
-function AssignRoles() {
+function Register() {
     useEffect(() => {
         loadWeb3();
         loadBlockchaindata();
@@ -85,13 +85,17 @@ function AssignRoles() {
     }
     const handlerSubmit = async (event) => {
         event.preventDefault();
+        console.log(SupplyChain.methods)
         try {
+            console.log(addMethod,address, name, place,currentaccount)
+            //0xB71e7fC29222C0F8393fc0007Dc2Ac610f43fFdF
             var reciept = await SupplyChain.methods?.[addMethod](address, name, place).send({ from: currentaccount });
             if (reciept) {
                 loadBlockchaindata();
             }
         }
         catch (err) {
+            console.log(err,">>>>>>>>>>")
             alert("An error occured!!!")
         }
     }
@@ -106,19 +110,19 @@ function AssignRoles() {
                         <Card.Title>Raw Material Suppliers</Card.Title>
                     </Card.Body>
                 </Card>
-                <Card onClick={() => cilickOnCard("manCtr", "MAN", "addMAN", "Manufacturers")}>
+                <Card onClick={() => cilickOnCard("manCtr", "MAN", "addManufacturer", "Manufacturers")}>
                     <Card.Img variant="top" src="https://media.istockphoto.com/id/1184804468/photo/industrial-technology-concept-factory-automation-smart-factory-industry-4-0.jpg?s=612x612&w=0&k=20&c=1MaCUFJnqZmuugNhMyL5kt4q0BMwiNpzmnJbSggBE6I=" />
                     <Card.Body>
                         <Card.Title>Manufacturers</Card.Title>
                     </Card.Body>
                 </Card>
-                <Card onClick={() => cilickOnCard("disCtr", "DIS", "addDIS", "Distributors")}>
+                <Card onClick={() => cilickOnCard("disCtr", "DIS", "addDistributor", "Distributors")}>
                     <Card.Img variant="top" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1osa1d35nNiqI7ry5kfRpP9d3GBmNXczgvchuEuD1UOGv8nz0Tr_J3PUQLRYxe9f6HYU&usqp=CAU" />
                     <Card.Body>
                         <Card.Title>Distributors</Card.Title>
                     </Card.Body>
                 </Card>
-                <Card onClick={() => cilickOnCard("retCtr", "RET", "addRET", "Retailers")}>
+                <Card onClick={() => cilickOnCard("retCtr", "RET", "addRetailer", "Retailers")}>
                     <Card.Img variant="top" src="https://topfranchise.com/upload/resize_cache/webp/upload/medialibrary/a63/a63b8282cd62a05600431d1c1992094d.webp" />
                     <Card.Body>
                         <Card.Title>Retailers</Card.Title>
@@ -164,4 +168,4 @@ function AssignRoles() {
     )
 }
 
-export default AssignRoles
+export default Register

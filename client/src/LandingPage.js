@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Web3 from "web3";
 
-function Home() {
+function LandingPage() {
     const [currentaccount, setCurrentaccount] = useState("");
 
     useEffect(() => {
@@ -38,4 +38,4 @@ function Home() {
     )
 }
 
-export default Home
+export default LandingPage

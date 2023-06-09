@@ -1,7 +1,7 @@
 import './App.css';
-import AssignRoles from './AssignRoles';
-import Home from './Home';
-import AddMed from './AddMed';
+import Register from './Register';
+import LandingPage from './LandingPage';
+import OrderMedicine from './OrderMedicine';
 import Supply from './Supply'
 import Track from './Track'
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
@@ -31,9 +31,9 @@ function App() {
       </Navbar>
       <Router>
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/register" component={AssignRoles} />
-          <Route path="/order-medicine" component={AddMed} />
+          <Route path="/" exact component={LandingPage} />
+          <Route path="/register" component={Register} />
+          <Route path="/order-medicine" component={OrderMedicine} />
           <Route path="/control-supply-chain" component={Supply} />
           <Route path="/track-medicine" component={Track} />
         </Switch>

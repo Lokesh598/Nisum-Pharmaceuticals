@@ -138,30 +138,15 @@ function Supply() {
                 <h5><b>Step 4: Retail</b>(Only a registered Retailer can perform this step)</h5>
                 <h5><b>Step 5: Mark as sold</b>(Only a registered Retailer can perform this step)</h5>
             </div> */}
-            <h6><b>Supply Chain Flow:</b>
-                <p>Medicine Order -&gt; Raw Material Supplier -&gt; Manufacturer -&gt; Distributor -&gt; Retailer -&gt; Consumer</p>
-            </h6>
-            <div className="m-20" style={{ textAlign: "-webkit-center",marginLeft: "25%",marginRight:"25%" }}>
-                <ProgressBar percent={100} style={{ width: "500px" }}>
-                    <Step transition="scale" text="New">
-                        {() => (<span className="circle">1 </span>)}
-                    </Step>
-                    <Step transition="scale" childre>
-                        {() => (<span className="circle">2</span>)}
-                    </Step>
-                    <Step transition="scale">
-                        {() => (<span className="circle">3</span>)}
-                    </Step>
-                    <Step transition="scale">
-                        {() => (<span className="circle">4</span>)}
-                    </Step>
-                    <Step transition="scale">
-                        {() => (<span className="circle">5</span>)}
-                    </Step>
-                    <Step transition="scale">
-                        {() => (<span className="circle">6</span>)}
-                    </Step>
-                </ProgressBar >
+            <div class="progressbar-wrapper m-20">
+                <ul class="progressbar">
+                    <li class="active">Medicine Order</li>
+                    <li class="active">Raw Material Supplier</li>
+                    <li class="active">Manufacturer</li>
+                    <li class="active">Distributor</li>
+                    <li class="active">Retailer</li>
+                    <li class="active">Consumer</li>
+                </ul>
             </div>
             <Table responsive="sm">
                 <thead>

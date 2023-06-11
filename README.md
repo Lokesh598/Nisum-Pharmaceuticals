@@ -17,7 +17,7 @@ Also it leads to an increase in the transparency and helps to build an efficient
 
 ## Architecture
 
-The smart contract is being written with Solidity which is then compiled, migrated and deployed using Truffle.js on the Gode Testnet blockchain network.The frontend uses Web3.js to communicate with the smart contract and Gode Testnet blockchain network and Meta Musk Wallet is connect to Gode Test Network to do Transaction between each component in Supply .
+The smart contract is being written with Solidity which is then compiled, migrated and deployed using Truffle.js on the Ethereum Vertual Machine (Ganache) blockchain network.The frontend uses Web3.js to communicate with the smart contract and ganache ethereum blockchain network and Meta Musk Wallet is connect to ganache Network to do Transaction between each component in Supply .
 
 ## 🔧 Setting up Local Development
 
@@ -29,7 +29,7 @@ The smart contract is being written with Solidity which is then compiled, migrat
 - **Node.js** : Download the latest version of Node.js from https://nodejs.org/ and after installation check Version using terimal: node -v .
 - **Git** : Download the latest version of Git from the official website at https://git-scm.com/downloads and check Version using terimal: git --version.
 
-- **Ganache** : Download the latest version of Ganache from the official website at https://www.trufflesuite.com/ganache.
+- **Ganache** : Quickly fire up a personal Ethereum blockchain which you can use to run tests, execute commands, and inspect state while controlling how the chain operates.Download the latest version of Ganache from the official website at https://www.trufflesuite.com/ganache.
 - **Truffle** : Truffle is a development environment, testing framework and asset pipeline for Ethereum, aiming to make life as an Ethereum developer easier.
 - **MetaMask** : can be installed as a browser extension from the Chrome Web Store or Firefox Add-ons store.
 

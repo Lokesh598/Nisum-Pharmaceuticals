@@ -1,13 +1,42 @@
-# Nisum-Pharmaceuticals
+<h1 align = "center">
+   Nisum-Pharmaceuticals
 
-A complete blockchain based solution for pharmaceuticals supply chain.
+   A complete blockchain based solution for pharmaceuticals Supply-Chain-Management-Decenterlized-Application.
+</h1>
+
+### Landing Page
+
+![image](https://github.com/Lokesh598/Nisum-Pharmaceuticals/assets/63910828/515a8091-3871-4328-9f26-08e8f3259208)
+
+### Register participants
+
+![image](https://github.com/Lokesh598/Nisum-Pharmaceuticals/assets/63910828/c5f1169b-d370-43b5-af64-eae34ae5edf3)
+
+### Add Raw Material Supplier
+
+![image](https://github.com/Lokesh598/Nisum-Pharmaceuticals/assets/63910828/9d8462a5-c440-4c9f-a8db-f709120f9664)
+
+### Order Medicine
+
+![image](https://github.com/Lokesh598/Nisum-Pharmaceuticals/assets/63910828/0c78a4b3-3bc4-44e8-942c-7b064a200ffd)
+
+### Control supply chain
+
+![image](https://github.com/Lokesh598/Nisum-Pharmaceuticals/assets/63910828/95f65e9e-a6ef-43f8-93ed-3280a3ced597)
+
+### Track Medicine
+
+![image](https://github.com/Lokesh598/Nisum-Pharmaceuticals/assets/63910828/69b75f4f-e9c6-4112-bbfb-b1714c243fbd)
+
+### Medicine Page
+
+![image](https://github.com/Lokesh598/Nisum-Pharmaceuticals/assets/63910828/35fd8c45-ff11-4811-9480-0e82846aa030)
+
+
 
 <h1 align="center">
   <br>
   <a><img src="https://www.mdpi.com/logistics/logistics-03-00005/article_deploy/html/images/logistics-03-00005-g001.png" width="200"></a>
-  <br>  
-  Supply-Chain-Management-Decenterlized-Application for Pharmaceuticals...
-  <br>
 </h1>
 
 ## Description

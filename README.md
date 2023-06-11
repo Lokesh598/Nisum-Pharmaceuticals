@@ -6,7 +6,7 @@ A complete blockchain based solution for pharmaceuticals supply chain.
   <br>
   <a><img src="https://www.mdpi.com/logistics/logistics-03-00005/article_deploy/html/images/logistics-03-00005-g001.png" width="200"></a>
   <br>  
-  Supply-Chain-Management-Decenterlized Application for Pharmaceuticals...
+  Supply-Chain-Management-Decenterlized-Application for Pharmaceuticals...
   <br>
 </h1>
 

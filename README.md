@@ -31,7 +31,6 @@ The smart contract is being written with Solidity which is then compiled, migrat
 
 - **Ganache** : Download the latest version of Ganache from the official website at https://www.trufflesuite.com/ganache.
 - **Truffle** : Truffle is a development environment, testing framework and asset pipeline for Ethereum, aiming to make life as an Ethereum developer easier.
-              $ npm install -g truffle
 - **MetaMask** : can be installed as a browser extension from the Chrome Web Store or Firefox Add-ons store.
 
 ### Step2.

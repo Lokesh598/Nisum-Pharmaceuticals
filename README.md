@@ -19,6 +19,25 @@ Also it leads to an increase in the transparency and helps to build an efficient
 
 The smart contract is being written with Solidity which is then compiled, migrated and deployed using Truffle.js on the Ethereum Vertual Machine (Ganache) blockchain network.The frontend uses Web3.js to communicate with the smart contract and ganache ethereum blockchain network and Meta Musk Wallet is connect to ganache Network to do Transaction between each component in Supply .
 
+## Smart Contract Working Flow
+
+![https://raw.githubusercontent.com/faizack619/Supply-Chain-Gode-Blockchain/master/client/public/Supply%20Chain%20Design%20(1).png?token=GHSAT0AAAAAAB52SPAT5YHI3AALNPFXL27AY7OU3IQ](https://raw.githubusercontent.com/faizack619/Supply-Chain-Gode-Blockchain/master/client/public/Supply%20Chain%20Design%20(1).png?token=GHSAT0AAAAAAB52SPAT5YHI3AALNPFXL27AY7OU3IQ)
+
+This is a SupplyChain smart contract written in Solidity. The contract models the various roles and stages involved in the supply chain of a pharmaceutical product.
+
+The contract owner is the person who deploys the contract and is the only one who can authorize various roles like retailer, manufacturer, etc.
+
+There are several roles involved in the supply chain of the pharmaceutical product. These include the raw material supplier, manufacturer, distributor, and retailer.
+
+The smart contract stores information about the medicine, such as its name, description, and current stage in the supply chain. There is also a function to show the current stage of a medicine, which can be used by client applications.
+
+The smart contract also stores information about the various players in the supply chain, such as their name, address, and place of operation.
+
+The addRMS(), addManufacturer(), addDistributor(), and addRetailer() functions can be used by the contract owner to add new players to the supply chain.
+
+Overall, this smart contract provides a way to track the various stages of a pharmaceutical product in the supply chain, ensuring transparency and accountability.
+
+
 ## 🔧 Setting up Local Development
 
 ### Step1.

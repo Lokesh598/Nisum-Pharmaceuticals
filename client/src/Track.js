@@ -169,6 +169,56 @@ function Track() {
                             <li className={selectedRed?.stage >= "5" ? "active" : ""}>Consumer</li>
                         </ul>
                     </div>
+                    <div className="page-content page-container" id="page-content">
+                        <div className="padding">
+                            <div className="row container d-flex justify-content-center">
+                                <div className="col-xl-12">
+                                    <div className="card proj-progress-card">
+                                        <div className="card-block">
+                                            <div className="row">
+                                                {MED[ID]?.stage >= "1" && <div className="col-xl-3 col-md-6">
+                                                    <h6>Raw Materials Supplied by <strong>{RMS[MED[ID]?.RMSid].name}</strong> from <strong>{RMS[MED[ID]?.RMSid].place}</strong></h6>
+                                                    <h5 className="m-b-30 f-w-700">Supplier ID<span className="text-c-green m-l-10">{RMS[MED[ID]?.RMSid].id}</span></h5>
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-c-red" style={{ width: "100%" }}></div>
+                                                    </div>
+                                                </div>}
+
+                                                {MED[ID]?.stage >= "2" && <div className="col-xl-3 col-md-6">
+                                                    <h6>Manufactured by <strong>{MAN[MED[ID]?.MANid].name}</strong> from <strong>{MAN[MED[ID]?.MANid].place}</strong></h6>
+                                                    <h5 className="m-b-30 f-w-700">Manufacturer ID<span className="text-c-red m-l-10">{MAN[MED[ID]?.MANid].id}</span></h5>
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-c-blue" style={{ width: "100%" }}></div>
+                                                    </div>
+                                                </div>}
+                                                {MED[ID]?.stage >= "3" && <div className="col-xl-3 col-md-6">
+                                                    <h6>Distributed by <strong>{DIS[MED[ID]?.DISid].name}</strong> from <strong>{DIS[MED[ID]?.DISid].place}</strong></h6>
+                                                    <h5 className="m-b-30 f-w-700">Distributor ID<span className="text-c-red m-l-10">{DIS[MED[ID]?.DISid].id}</span></h5>
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-c-blue" style={{ width: "100%" }}></div>
+                                                    </div>
+                                                </div>}
+                                                {MED[ID]?.stage >= "4" && <div className="col-xl-3 col-md-6">
+                                                    <h6>Retailed by <strong>{RET[MED[ID]?.RETid].name}</strong> from <strong>{RET[MED[ID]?.RETid].place}</strong></h6>
+                                                    <h5 className="m-b-30 f-w-700">Retailer ID<span className="text-c-red m-l-10">{RET[MED[ID]?.RETid].id}</span></h5>
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-c-blue" style={{ width: "100%" }}></div>
+                                                    </div>
+                                                </div>}
+                                                {MED[ID]?.stage >= "5" && <div className="col-xl-3 col-md-6">
+                                                    <h6>Sold by <strong>{RET[MED[ID]?.RETid].name}</strong> from <strong>{RET[MED[ID]?.RETid].place}</strong></h6>
+                                                    <h5 className="m-b-30 f-w-700">Retailer ID<span className="text-c-red m-l-10">{RET[MED[ID]?.RETid].id}</span></h5>
+                                                    <div className="progress">
+                                                        <div className="progress-bar bg-c-blue" style={{ width: "100%" }}></div>
+                                                    </div>
+                                                </div>}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </>}
         </>
     )

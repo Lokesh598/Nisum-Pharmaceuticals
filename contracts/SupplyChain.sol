@@ -50,7 +50,7 @@ contract SupplyChain {
         string name; //name of the medicine
         string description; //about medicine
         string compositions; //about compostion
-        uint256 quantity;
+        uint256 quantity; //medicine quantity
         uint256 RMSid; //id of the Raw Material supplier for this particular medicine
         uint256 MANid; //id of the Manufacturer for this particular medicine
         uint256 DISid; //id of the distributor for this particular medicine
@@ -83,9 +83,9 @@ contract SupplyChain {
     //To store information about raw material supplier
     struct rawMaterialSupplier {
         address addr;
-        uint256 id; //supplier id
-        string name; //Name of the raw material supplier
-        string place; //Place the raw material supplier is based in
+        uint256 id;
+        string name;
+        string place;
     }
 
     //To store all the raw material suppliers on the blockchain
@@ -94,9 +94,9 @@ contract SupplyChain {
     //To store information about manufacturer
     struct manufacturer {
         address addr;
-        uint256 id; //manufacturer id
-        string name; //Name of the manufacturer
-        string place; //Place the manufacturer is based in
+        uint256 id;
+        string name;
+        string place;
     }
 
     //To store all the manufacturers on the blockchain
@@ -105,9 +105,9 @@ contract SupplyChain {
     //To store information about distributor
     struct distributor {
         address addr;
-        uint256 id; //distributor id
-        string name; //Name of the distributor
-        string place; //Place the distributor is based in
+        uint256 id;
+        string name;
+        string place;
     }
 
     //To store all the distributors on the blockchain
@@ -116,9 +116,9 @@ contract SupplyChain {
     //To store information about retailer
     struct retailer {
         address addr;
-        uint256 id; //retailer id
-        string name; //Name of the retailer
-        string place; //Place the retailer is based in
+        uint256 id;
+        string name;
+        string place;
     }
 
     //To store all the retailers on the blockchain
@@ -261,10 +261,10 @@ contract SupplyChain {
         medicineCtr++;
         MedicineStock[medicineCtr] = medicine(
             medicineCtr,
-            _name,
-            _description,
-            _composition,
-            _quantity, // Set the composition of the medicine
+            _name, // set the name of medicine
+            _description, // set the description of the medicine
+            _composition, // set the composition of the medicine
+            _quantity, // Set the number of quantities
             0,
             0,
             0,

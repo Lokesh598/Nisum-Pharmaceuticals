@@ -9,8 +9,8 @@ ReactDOM.render(
   <React.StrictMode>
     <App />
     {window?.location?.pathname !== "/" && <footer className="footer">
-      <div>@2023 Copyright : Hackathon WEB3.0 <a href="https://www.nisum.com/">nisum.com</a></div>
-      <div>Developed By : Anup Kumar Beerkur, Tulasi Naveen Nadella, Lokesh Singh, Jhansi Mandadi</div>
+      <div>@2024 Copyright : Collaboration Spark Event <a href="https://www.nisum.com/">nisum.com</a></div>
+      <div>Developed By : Anup Kumar Beerkur, Venkatesh Marugalla, Lokesh Singh</div>
     </footer>}
   </React.StrictMode>,
   document.getElementById('root')

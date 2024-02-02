@@ -17,10 +17,15 @@ hr {
 
 .card {
     margin: 20px !important;
+    border-radius: 20px;
 }
 
 .card-body {
     padding: 15px !important;
+    text-align: center;
+}
+.card-body > button {
+    border-radius: 10px;
 }
 
 .card-title {
@@ -53,18 +58,20 @@ hr {
 }
 
 .homebg {
-    background-image: url("https://code-care.com/wp-content/uploads/2023/01/What-are-the-Advantages-of-Web-3.0-and-How-Quickly-Should-You-Adapt-to-it.jpeg");
+    background-image: url("./assets/nisum.jpg");
     background-size: cover;
     height: 100vh;
     margin-top: -63px;
     background-repeat: no-repeat;
+    width: 99%;
+    margin: 0 auto;
 }
 
 .project-title {
     position: absolute;
     left: 65%;
-    top: 40%;
-    height: 200px;
+    top: 42%;
+    height: 220px;
     margin-top: -100px;
     margin-left: -15%;
     color: #FFF;
@@ -73,6 +80,7 @@ hr {
 .active-link {
     font-weight: bold;
     color : #FFF !important;
+    border-bottom: 2px solid;
 }
 
 .bg-transparent {
@@ -299,7 +307,7 @@ h6 {
 }
 
 .footer {
-    height: 46px;
+    height: 60px;
     background-color: #ccc;
     position: fixed;
     width: 100%;
@@ -309,4 +317,15 @@ h6 {
     display: inline-grid;
     justify-content: center;
     text-align: center;
+    padding: 10px;
+}
+.nav-content {
+    border-bottom: 5px solid white;
+    padding: 0px;
+}
+a.nav-link{
+    color: white !important;
+}
+a.nav-link:hover{
+    font-weight: bold;
 }

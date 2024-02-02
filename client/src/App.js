@@ -11,7 +11,7 @@ import Nav from 'react-bootstrap/Nav';
 function App() {
   return (
     <div className="App">
-      <Navbar bg={window?.location?.pathname === "/" ? "transparent" : "primary"} variant="dark">
+      <Navbar className='nav-content' bg={window?.location?.pathname === "/" ? "primary" : "primary"} variant="dark">
         <Container>
           <Navbar.Brand href="/">
             <img
@@ -21,7 +21,7 @@ function App() {
               className="d-inline-block align-top"
             /> WEB3.0
           </Navbar.Brand>
-          <Nav className="me-auto">
+          <Nav className="me-auto nav-links">
             <Nav.Link href="/register" className={window?.location?.pathname === "/register" ? "active-link" : ""}>Register</Nav.Link>
             <Nav.Link href="/order-medicine" className={window?.location?.pathname === "/order-medicine" ? "active-link" : ""}>Order Medicines</Nav.Link>
             <Nav.Link href="/control-supply-chain" className={window?.location?.pathname === "/control-supply-chain" ? "active-link" : ""}>Control Supply Chain</Nav.Link>

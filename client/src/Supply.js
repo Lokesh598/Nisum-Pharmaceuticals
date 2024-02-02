@@ -184,7 +184,7 @@ function Supply() {
                                     {MedStage[key] === "Raw Material Supply Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitManufacturing(event, MED[key].id)}>Manufacture</button>}
                                     {MedStage[key] === "Manufacturing Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitDistribute(event, MED[key].id)}>Distribute</button>}
                                     {MedStage[key] === "Distribution Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitRetail(event, MED[key].id)}>Retail</button>}
-                                    {MedStage[key] === "Retail Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitSold(event, MED[key].id)}>Sold</button>}
+                                    {MedStage[key] === "Retail Stage" && <button className="btn btn-outline-success btn-sm" onClick={(event) => handlerSubmitSold(event, MED[key].id)}>Sell</button>}
                                 </td>
                             </tr>
                         )
